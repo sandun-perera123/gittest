@@ -1,0 +1,16 @@
+.btn{
+    min-width: 82px;
+}
+
+.header h1{
+    font-size:28px;
+    margin: 15px 0px;
+}
+
+.content-row{
+    padding-top: 45px;
+}
+
+.header{
+    background-color: antiquewhite;
+}

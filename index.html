@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="ViewApp">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bower_components/angular/angular.min.js"/>
+<link rel="stylesheet" href="app.css"/>
+
+<script src="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+
+<body ng-controller="StudentController">
+
+<div class="container">
+  <div class="row header-row">
+      <div class="col-md-12 header"><h1>Student Management</h1></div>
+  </div>
+
+  <div class="row content-row">
+      <div class="col-md-5 left-panel">
+        <form novalidate>
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input class="form-control" type="text" name="txtFirstName" ng-model="student.firstname"/>
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input class="form-control" type="text" name="txtLastName" ng-model="student.lastname"/>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input class="form-control" type="date" name="txtDob" ng-model="student.dob"/>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label> <br/>
+                <input type="radio" name="radioGender" value="Male" checked ng-model="student.gender"/> Male 
+                <input type="radio" name="radioGender" value="Female" ng-model="student.gender"/> Female 
+            </div>
+
+            <div class="form-group">
+                <label>NIC</label>
+                <input class="form-control" type="text" name="txtNic" ng-model="student.nic"/>
+            </div>
+
+            <div class="form-group">
+                <input class="btn" type="button" name="btnAdd" value="ADD" ng-click="add(student)"/>
+                <input class="btn" type="button" name="btnDelete" value="DELETE" ng-click="delete(student)"/>
+                <input class="btn" type="button" name="btnUpdate" value="UPDATE" ng-click="update(student)"/>
+                <input class="btn" type="button" name="btnClear" value="CLEAR" ng-click="delete(student)"/>
+            </div>
+
+        </form>
+      </div>
+
+      <div class="col-md-7 right-panel">
+
+            <div class="row">
+                <div class="col-md-6">
+                    &nbsp;
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Search</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>NIC</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Sandun Madushan</td>
+                                <td>Male</td>
+                                <td>24 Yrs</td>
+                                <td>930662313V</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+
+      </div>
+  </div>
+</div>
+
+</body>
+
+<script>
+    
+    var viewapp = angular.module('ViewApp',[]);
+
+    viewapp.controller('StudentController',function StudentController($scope){
+
+        $scope.firstname = "Sandun";
+        $student.lastname = "Perera";
+        $scope.dob = "1993-03-06";
+        $scope.gender = "Male";
+        $scope.nic = "930662313V";
+
+    });
+
+
+    viewapp.config(function($routeProvider) {
+        $routeProvider
+
+            .when('/', {
+                templateUrl : 'index.html',
+                controller  : 'StudentController'
+            })
+
+    });  
+
+</script>
+
+</html>
